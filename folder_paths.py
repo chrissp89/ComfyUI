@@ -157,7 +157,7 @@ def filter_files_content_types(files: List[str], content_types: Literal["image",
 
 # determine base_dir rely on annotation if name is 'filename.ext [annotation]' format
 # otherwise use default_path as base_dir
-def annotated_filepath(name: str) -> tuple[str, str | None]:
+def annotated_filepath(name: str) -> tuple[str, str | new_func()]: # type: ignore
     if name.endswith("[output]"):
         base_dir = get_output_directory()
         name = name[:-9]
@@ -171,6 +171,9 @@ def annotated_filepath(name: str) -> tuple[str, str | None]:
         return name, None
 
     return name, base_dir
+
+def new_func():
+    return None
 
 
 def get_annotated_filepath(name: str, default_dir: str | None=None) -> str:

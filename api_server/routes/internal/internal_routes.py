@@ -49,3 +49,4 @@ class InternalRoutes:
             self.setup_routes()
             self._app.add_routes(self.routes)
         return self._app
+    
